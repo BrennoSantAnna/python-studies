@@ -13,33 +13,23 @@ print("FORMAS DE PAGAMENTO\n"
 
 forma_pagamento = int(input("Qual a forma de pagamento? "))
 
-desconto = 0
-juros = 0
-valor_total = 0
-quantidade_parcelas = 0
-valor_parcelas = 0
-
 if forma_pagamento == 1:
     desconto = 0.1 * preco_compras
     valor_total = preco_compras - desconto
     print(f"Sua compra de R$ {preco_compras:.2f} vai custar R$ {valor_total:.2f} no final")
-
 elif forma_pagamento == 2:
     desconto = 0.05 * preco_compras
     valor_total = preco_compras - desconto
     print(f"Sua compra de R$ {preco_compras:.2f} vai custar R$ {valor_total:.2f} no final")
-
 elif forma_pagamento == 3:
     valor_parcelas = preco_compras / 2
     print(f"Sua compra será parcelada em 2x de R$ {valor_parcelas:.2f} SEM JUROS\n"
           f"Sua compra de R$ {preco_compras:.2f} vai custar R$ {preco_compras:.2f} no final")
-    
 elif forma_pagamento == 4:
     quantidade_parcelas = int(input("Quantas parcelas? "))
     juros = 0.2 * preco_compras
     valor_parcelas = (preco_compras + juros) / quantidade_parcelas
     print(f"Sua compra será parcelada em {quantidade_parcelas}x de R$ {valor_parcelas:.2f} COM JUROS\n"
           f"Sua compra de R$ {preco_compras:.2f} vai custar R$ {preco_compras + juros:.2f} no final")
-    
 else:
     print("Opção inválida! Tente novamente")
