@@ -6,9 +6,9 @@ print("-=" * 13)
 print("Analisador de Triângulos")
 print("-=" * 13)
 
-a = int(input("Primeiro segmento: "))
-b = int(input("Segundo segmento: "))
-c = int(input("Terceiro segmento: "))
+a = float(input("Primeiro segmento: "))
+b = float(input("Segundo segmento: "))
+c = float(input("Terceiro segmento: "))
 
 if a < b + c and b < a + c and c < a + b:
     print("Os segmentos acima PODEM FORMAR triângulo!")
