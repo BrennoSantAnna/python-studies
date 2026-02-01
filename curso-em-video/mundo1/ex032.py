@@ -1,5 +1,6 @@
 # Faça um programa qaue leia um ano qualquer e mostre se ele é BISSEXTO
 
+# Importação de módulos necessários para o funcionamento do programa
 from datetime import date
 
 ano = int(input("Que ano quer analisar? Coloque 0 para analisar o ano atual: "))
