@@ -1,8 +1,22 @@
 # Crie um programa que leia dois números e mostre a soma entre eles.
 
-primeiro_valor = int(input("Digite o primeiro valor: ")) 
-segundo_valor = int(input("Digite o segundo valor: "))
 
-soma = primeiro_valor + segundo_valor
+def get_integer(prompt: str) -> int:
+    while True:
+        try:
+            return int(input(prompt))
+        except ValueError:
+            print("Please enter a valid integer.")
 
-print(f"A soma entre {primeiro_valor} e {segundo_valor} é igual a {soma}!")
+
+def main() -> None:
+    first_value = get_integer("Enter the first number: ")
+    second_value = get_integer("Enter the second number: ")
+
+    result = first_value + second_value
+
+    print(f"The sum between {first_value} and {second_value} is {result}")
+
+
+if __name__ == "__main__":
+    main()
