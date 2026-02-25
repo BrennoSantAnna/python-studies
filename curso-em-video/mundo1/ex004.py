@@ -1,13 +1,21 @@
-# Faça um programa que leia algo pelo teclado e mostre na tela o 
+# Faça um programa que leia algo pelo teclado e mostre na tela o
 # seu tipo primitivo e todas as informações possíveis sobre ele.
 
-valor = input("Digite algo: ")
 
-print(f"O tipo primitivo desse valor é {type(valor)}\n"
-      f"Só tem espaços? {valor.isspace()}\n"
-      f"É um número? {valor.isnumeric()}\n"
-      f"É alfabético? {valor.isalpha()}\n"
-      f"É alfanumérico? {valor.isalnum()}\n"
-      f"Está em maiúsculas? {valor.isupper()}\n"
-      f"Está em minúsculas? {valor.islower()}\n"
-      f"Está capitalizada? {valor.istitle()}")
+def main() -> None:
+    value = input("Enter something: ")
+
+    print(
+        f"The primitive type of this value is {type(value)}\n"
+        f"Contais only spaces? {value.isspace()}\n"
+        f"Is numeric? {value.isnumeric()}\n"
+        f"Is alphabetical? {value.isalpha()}\n"
+        f"Is alphanumeric? {value.isalnum()}\n"
+        f"Is it in uppercase? {value.isupper()}\n"
+        f"Is it in lowercase? {value.islower()}\n"
+        f"Is it capitalized? {value.istitle()}"
+    )
+
+
+if __name__ == "__main__":
+    main()
