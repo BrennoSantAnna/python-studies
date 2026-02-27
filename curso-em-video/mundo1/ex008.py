@@ -9,7 +9,7 @@ def get_float(prompt: str) -> float:
             print("Please enter a valid number.")
 
 
-def calculate(prompt: float) -> str:
+def convert_meters(prompt: float) -> str:
     return (
         f"{prompt / 1000}km\n"
         f"{prompt / 100}hm\n"
@@ -24,7 +24,7 @@ def main() -> None:
     value = get_float("Enter a value (m): ")
 
     print(f"\nThe measurement of {value} meters correspondts to:")
-    print(calculate(value))
+    print(convert_meters(value))
 
 
 if __name__ == "__main__":
