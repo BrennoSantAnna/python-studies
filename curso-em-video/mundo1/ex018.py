@@ -1,14 +1,36 @@
 # Faça um programa que leia um ângulo qualquer e mostre na tela o valor do seno, cosseno e tangente
 
-# Importação de módulos necessários para o funcionamento do programa
-from math import radians, sin, cos, tan
+# Importing modules necessary for the program to run
+import math
 
-angulo = int(input("Digite o ângulo que você deseja: "))
 
-seno = sin(radians(angulo))
-cosseno = cos(radians(angulo))
-tangente = tan(radians(angulo))
+def get_float(prompt: str) -> float:
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Please enter a valid number.")
 
-print(f"O ângulo de {float(angulo):.1f} tem o SENO de {seno:.2f}\n"
-      f"O ângulo de {float(angulo):.1f} tem o COSSENO de {cosseno:.2f}\n"
-      f"O ângulo de {float(angulo):.1f} tem a TANGENTE de {tangente:.2f}")
+
+def calculate_trigonometric_functions(angle: float) -> tuple[float, float, float]:
+    radians = math.radians(angle)
+    return {
+        math.sin(radians),
+        math.cos(radians),
+        math.tan(radians),
+    }
+
+
+def main() -> None:
+    angle = get_float("Enter the angle: ")
+
+    sine, cosine, tangent = calculate_trigonometric_functions(angle)
+
+    print(f"The angle of {angle} has "
+          f"a sine of {sine:.2f}, "
+          f"a cosine of {cosine:.2f} and "
+          f"a tangent of {tangent:.2f}.")
+
+
+if __name__ == "__main__":
+    main()
