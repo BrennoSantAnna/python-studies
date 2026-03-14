@@ -3,8 +3,38 @@
 # 2. Em que posição ela aparece a primeira vez
 # 3. Em que posição ela aparece a última vez
 
-frase = str(input("Digite uma frase: ")).strip().upper()
 
-print(f"A letra A aparece {frase.count("A")} vezes na frase\n"
-      f"A primeira letra A apareceu na posição {frase.find("A") + 1}\n"
-      f"A última letra A apareceu na posição {frase.rfind("A") + 1}")
+def get_phrase(prompt: str) -> str:
+    while True:
+        phrase = input(prompt).strip()
+
+        if not phrase:
+            print("Phrase cannot be empty.")
+            continue
+
+        return phrase.upper()
+
+
+def analyze_letter_a(phrase: str) -> tuple[int, int, int]:
+    count = phrase.count("A")
+    first = phrase.find("A")
+    last = phrase.rfind("A")
+
+    if first != -1:
+        first += 1
+        last += 1
+
+    return count, first, last
+
+
+def main() -> None:
+    phrase = get_phrase("Enter a phrase: ")
+
+    count, first, last = analyze_letter_a(phrase)
+
+    print(f"The letter 'A' appears {count} times in the sentence.\n"
+          f"The first letter 'A' appeared at position {first}.\n"
+          f"The last letter 'A' appeared at position {last}.")
+
+if __name__ == "__main__":
+    main()
