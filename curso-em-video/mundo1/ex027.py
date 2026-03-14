@@ -2,11 +2,38 @@
 # mostrando em seguida o primeiro e o último nome separadamente
 # Ex. Ana Maria de Souza - primeiro = Ana - último = Souza
 
-nome_completo = str(input("Digite seu nome completo: ")).strip()
 
-# separando o nome em lista para acesssar o primeiro e último elemento
-nome_separado = nome_completo.split()
+def get_full_name(prompt: str) -> str:
+    while True:
+        full_name = input(prompt).strip()
 
-print(f"Muito prazer em te conhecer!\n"
-      f"Seu primeiro nome é {nome_separado[0]}\n"
-      f"Seu último nome é {nome_separado[-1]}")
+        if not full_name:
+            print("Name cannot be empty.")
+            continue
+
+        if not full_name.replace(" ", "").isalpha():
+            print("Name must contain only letters.")
+            continue
+
+        return full_name
+
+
+def split_name(prompt: str) -> tuple[str, str]:
+    separate = prompt.split()
+    first = separate[0]
+    last = separate[-1]
+
+    return separate, first, last
+
+
+def main() -> None:
+    full_name = get_full_name("Enter your full name: ")
+
+    separate, first, last = split_name(full_name)
+
+    print(f"Nice to meet you!\n"
+          f"Your first name is {first}.\n"
+          f"Your last name is {last}.")
+
+if __name__ == "__main__":
+    main()
