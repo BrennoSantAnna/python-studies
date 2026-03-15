@@ -1,14 +1,35 @@
 # Faça um programa qaue leia um ano qualquer e mostre se ele é BISSEXTO
 
-# Importação de módulos necessários para o funcionamento do programa
+# Importing the modules required for the program to run
 from datetime import date
 
-ano = int(input("Que ano quer analisar? Coloque 0 para analisar o ano atual: "))
 
-if ano == 0:
-    ano = date.today().year
+def get_year(prompt: str) -> int:
+    while True:
+        try:
+            year = int(input(prompt))
+            return year
+        except ValueError:
+            print("Please enter a valid integer.")
 
-if ano % 4 == 0 and ano and 100 != 0 or ano % 400 == 0:
-    print(f"O ano {ano} é BISSEXTO")
-else:
-    print(f"O ano {ano} NÃO é BISSEXTO")
+
+def is_leap_year(year: int) -> bool:
+    return (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
+
+
+def main() -> None:
+    year = get_year(
+        "Which year would you like to analyze? Enter 0 to analyze the current year: "
+    )
+
+    if year == 0:
+        year = date.today().year
+
+    if is_leap_year(year):
+        print(f"{year} is a leap year.")
+    else:
+        print(f"{year} is not a leap year.")
+
+
+if __name__ == "__main__":
+    main()
