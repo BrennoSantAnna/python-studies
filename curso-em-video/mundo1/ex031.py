@@ -2,14 +2,31 @@
 # em Km. Calcule o preço da passagem, cobrando R$ 0,50 por Km
 # para viagens de até 200Km e R$ 0,45 para viagens mais longas
 
-distancia = int(input("Qual é a distância da sua viagem? "))
 
-if distancia <= 200:
-    preco = 0.5
-else:
-    preco = 0.45
+def get_kilometer(prompt: str) -> float:
+    while True:
+        try:
+            distance = float(input(prompt))
+            return distance
+        except ValueError:
+            print("Please enter numbers only.")
 
-valor = distancia * preco
 
-print(f"Você está prestes a começar uma viagem de {float(distancia)}Km.\n"
-      f"E o preço da sua passagem será de R$ {valor:.2f}")
+def calculate_price(distance: float) -> float:
+    if distance <= 200:
+        price = 0.50
+    else:
+        price = 0.45
+
+    return distance * price
+
+
+def main() -> None:
+    distance = get_kilometer("How far is your trip? ")
+
+    print(f"You are about to embark on a {distance:.2f} kilometer trip.\n"
+          f"And your fare will be US$ {calculate_price(distance):.2f}")
+
+
+if __name__ == "__main__":
+    main()
